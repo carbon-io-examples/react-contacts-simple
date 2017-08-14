@@ -1,0 +1,140 @@
+
+*, *;before, *:after {
+  box-sizing: inherit;
+  content: none;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: white;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  cursor: pointer;
+}
+
+.column {
+  flex: 1;
+}
+
+.main {
+  display: flex;
+}
+
+.form-control, input {
+  border: 1px solid #E5E5E5;
+}
+
+.btn-warning {
+  background-color: #ffc107;
+  border-color: #ebb30b;
+}
+
+.header {
+  border-bottom: 1px solid #232323;
+  height: 90px;
+  background-color: #373F46;
+}
+
+.header--content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.header--content:before,
+.header--content:after {
+  display: none;
+}
+
+.header--title {
+  margin-top: 0;
+  margin-bottom: 0;
+  color: white;
+}
+
+.header--links {
+  color: white;
+}
+
+.header--email {
+  margin-right: 2rem;
+}
+
+.header--links a {
+  color: white;
+}
+
+.content {
+  padding-top: 2rem;
+}
+
+.contact-form {
+  background-color: #F8F8F9;
+  border: 1px solid #F1F1F1;
+  border-radius: 6px;
+  padding-bottom: 1.5rem;
+}
+
+.contact-list-top,
+.contact-form-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 70px;
+}
+
+.contact-list-top--title,
+.contact-form-top--title {
+  flex-grow: 1;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.contact-list--list {
+  padding-left: 0;
+}
+
+.contact-list--list-item {
+  padding: 1rem;
+  list-style: none;
+  cursor: pointer;
+  border-top: 1px solid #E5E5E5;
+  color: #636d75;
+}
+
+.contact-list--list-item:hover {
+  background-color: #F8F8F9;
+}
+
+.contact-list--list-item.m-empty,
+.contact-list--list-item.m-empty:hover {
+  background-color: transparent;
+  font-style: italic;
+  color: #a1a1a1;
+  text-align: center;
+  cursor: initial;
+}
+
+.contact-list--list-item.s-selected,
+.contact-list--list-item.s-selected:hover {
+  background-color: #ffc107;
+  color: white;
+  cursor: initial;
+  border-color: transparent;
+}
+
+.contact-list--list-item:last-of-type {
+  border-bottom: 1px solid #E5E5E5;
+}
+
+.alert-box {
+  margin-top: 2rem;
+  text-align: center;
+}
