@@ -1,6 +1,6 @@
 import React from "react"
 import { connect } from 'react-redux'
-import {changeContact, dispatchCreateContact, dispatchUpdateContact, dispatchDeleteContact} from '../../actions'
+import { changeContact, dispatchCreateContact, dispatchUpdateContact, dispatchDeleteContact } from '../../actions'
 
 const DISPLAY_NAMES = {
   'firstName': 'First Name',
@@ -20,19 +20,16 @@ export class FormView extends React.Component {
 
     const submitUpdate = (e) => {
       e.preventDefault()
-      e.stopPropagation()
       handleUpdateContact(contact)
     }
     
     const submitCreate = (e) => {
       e.preventDefault()
-      e.stopPropagation()
       handleCreateContact(contact)
     }
     
     const submitDelete = (e) => {
       e.preventDefault()
-      e.stopPropagation()
       handleDeleteContact(contact._id)
     }
 
@@ -58,9 +55,11 @@ export class FormView extends React.Component {
 
   renderInput(field) {
     const { handleChangeContact, contact } = this.props
+    
     const changeHandler = (e) => {
       handleChangeContact(field, e.target.value)
     }
+    
     return (
       <div className="form-group" key={field}>
       <label className="form-label">{DISPLAY_NAMES[field]}</label>
@@ -76,13 +75,13 @@ export class FormView extends React.Component {
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
     contact: state.selectedContact
   }
 }
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
     handleChangeContact: (key, val) => {
       dispatch(changeContact(key, val))

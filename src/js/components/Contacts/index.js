@@ -1,11 +1,11 @@
 import { connect } from 'react-redux'
 import React from "react"
-import {selectContact, clearSelectedContact} from '../../actions'
+import { selectContact, clearSelectedContact } from '../../actions'
 
 export class ContactsView extends React.Component {
 
   render() {
-    const {contacts, selectedContactId, handleSelectContact, handleClearSelectedContact} = this.props
+    const { contacts, selectedContactId, handleSelectContact, handleClearSelectedContact } = this.props
     return (
       <div>
         <section className="contact-list col-md-6">
@@ -17,10 +17,10 @@ export class ContactsView extends React.Component {
           </div>
 
           <ul className="contact-list--list">
-            { contacts.length ?
-              contacts.map((contact) => this.renderListItem(contact, selectedContactId, handleSelectContact))
-              :
-              <li className="contact-list--list-item m-empty">You have not added any contacts, yet.</li>
+            {
+              contacts.length 
+                ? contacts.map((contact) => this.renderListItem(contact, selectedContactId, handleSelectContact))
+                : <li className="contact-list--list-item m-empty">You have not added any contacts, yet.</li>
             }
           </ul>
         </section>
@@ -44,14 +44,14 @@ export class ContactsView extends React.Component {
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
     contacts: state.contacts,
     selectedContactId: state.selectedContact._id
   }
 }
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
     handleSelectContact: contact => {
       dispatch(selectContact(contact))

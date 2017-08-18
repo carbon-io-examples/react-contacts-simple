@@ -1,7 +1,7 @@
-import React from "react";
-import Contacts from './Contacts';
-import Header from './Header';
-import Form from './Form';
+import React from "react"
+import Contacts from './Contacts'
+import Header from './Header'
+import Form from './Form'
 
 
 export default class App extends React.Component {

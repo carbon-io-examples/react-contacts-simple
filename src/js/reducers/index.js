@@ -17,11 +17,11 @@ const reducer = (state, action) => {
       return { ...state, selectedContact: action.payload }
       
     case types.CHANGE_CONTACT:
-      var updatedContact = {...state.selectedContact, ...action.payload};
+      var updatedContact = { ...state.selectedContact, ...action.payload };
       var updatedContacts = state.contacts;
     
       if (updatedContact._id) {
-        updatedContacts = state.contacts.map(c => {
+        updatedContacts = state.contacts.map((c) => {
           if (updatedContact._id === c._id) {
             return updatedContact;
           }
@@ -31,7 +31,7 @@ const reducer = (state, action) => {
       return { selectedContact: updatedContact, contacts: updatedContacts }
       
     case types.FETCH_CONTACTS_FULFILLED:
-      return {...state, contacts: action.payload}  
+      return { ...state, contacts: action.payload }  
       
     case types.CREATE_CONTACT_FULFILLED:
       var newContact = action.payload
@@ -49,7 +49,7 @@ const reducer = (state, action) => {
       return {
         ...state,
         selectedContact: emptyContact(),
-        contacts: state.contacts.filter(c => c._id !== action.payload)
+        contacts: state.contacts.filter((c) => c._id !== action.payload)
       }
 
     case types.CLEAR_SELECTED_CONTACT:

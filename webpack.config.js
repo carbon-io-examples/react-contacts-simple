@@ -1,5 +1,6 @@
-var debug = process.env.NODE_ENV !== "production";
-var path = require('path');
+const debug = process.env.NODE_ENV !== "production";
+const path = require('path');
+const webpack = require("webpack");
 
 module.exports = {
   entry: path.join(__dirname, 'src/js/client.js'),
@@ -21,5 +22,10 @@ module.exports = {
   },
   devServer: {
     contentBase: path.join(__dirname, 'src')
-  }
+  },
+  plugins: [
+    new webpack.EnvironmentPlugin({
+      CONTACTS_API_URI: 'http://localhost:9900'
+    })
+  ]
 };

@@ -1,7 +1,7 @@
 import axios from 'axios'
  
 axios.defaults.headers.post['Content-Type'] = 'application/json'
-axios.defaults.baseURL = 'http://localhost:9900'
+axios.defaults.baseURL = process.env.CONTACTS_API_URI
  
  
 const Api = {
@@ -11,14 +11,14 @@ const Api = {
       url: `/contacts`
     })
   },
-  updateContact: contact => {
+  updateContact: (contact) => {
     return axios({
       method: 'put',
       url: `/contacts/${contact._id}`,
       data: contact
     })
   },
-  createContact: contact => {
+  createContact: (contact) => {
     return axios({
       method: 'post',
       url: `/contacts`,
@@ -26,12 +26,12 @@ const Api = {
     })
   },
 
-  deleteContact: contactId => {
+  deleteContact: (contactId) => {
     return axios({
       method: 'delete',
       url: `/contacts/${contactId}`
     })
   }
 }
- 
-export { Api as default }
+
+export default Api
