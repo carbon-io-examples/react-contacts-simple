@@ -1,6 +1,6 @@
 # Simple React Contacts
 
-This is an example of a React application that talks to a Carbon.io API
+This tutorial shows how to use [React](https://facebook.github.io/react/) to implement a web application for managing personal contacts. It uses the Carbon.io service [here](git@github.com:tfogo/example__simple-rest-api.git) as an API for managing the contacts.
 
 ## Installation
 
