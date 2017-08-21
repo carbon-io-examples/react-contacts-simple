@@ -3,16 +3,7 @@ import { createLogger } from 'redux-logger'
 import thunk from 'redux-thunk'
 import reducers from '../reducers'
 import { dispatchFetchContacts } from '../actions'
-
-const emptyContact = () => {
-  return {
-    firstName: '',
-    lastName: '',
-    email: '',
-    phoneMobile: '',
-    phoneWork: ''
-  }
-}
+import { emptyContact } from '../helpers'
 
 const defaultState = {
   contacts: [],

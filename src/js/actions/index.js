@@ -8,8 +8,9 @@ export const selectContact = (contact) => {
   }
 }
 
-export const changeContact = (contactKey, newContactVal) => {
+export const changeContact = (contactId, contactKey, newContactVal) => {
   return {
+    contactId,
     type: types.CHANGE_CONTACT,
     payload: { [contactKey]: newContactVal }
   }

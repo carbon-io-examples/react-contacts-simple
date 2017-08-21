@@ -57,7 +57,7 @@ export class FormView extends React.Component {
     const { handleChangeContact, contact } = this.props
     
     const changeHandler = (e) => {
-      handleChangeContact(field, e.target.value)
+      handleChangeContact(contact._id, field, e.target.value)
     }
     
     return (
@@ -83,8 +83,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    handleChangeContact: (key, val) => {
-      dispatch(changeContact(key, val))
+    handleChangeContact: (contactId, key, val) => {
+      dispatch(changeContact(contactId, key, val))
     },
     handleCreateContact: contact => {
       dispatch(dispatchCreateContact(contact))
