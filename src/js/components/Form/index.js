@@ -75,28 +75,25 @@ export class FormView extends React.Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    contact: state.selectedContact
-  }
-}
+const mapStateToProps = (state) => ({
+  contact: state.selectedContact
+})
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    handleChangeContact: (contactId, key, val) => {
-      dispatch(changeContact(contactId, key, val))
-    },
-    handleCreateContact: contact => {
-      dispatch(dispatchCreateContact(contact))
-    },
-    handleUpdateContact: contact => {
-      dispatch(dispatchUpdateContact(contact))
-    },
-    handleDeleteContact: contactId => {
-      dispatch(dispatchDeleteContact(contactId))
-    }
+const mapDispatchToProps = (dispatch) => ({
+  handleChangeContact(contactId, key, val) {
+    dispatch(changeContact(contactId, key, val))
+  },
+  handleCreateContact(contact) {
+    dispatch(dispatchCreateContact(contact))
+  },
+  handleUpdateContact(contact) {
+    dispatch(dispatchUpdateContact(contact))
+  },
+  handleDeleteContact(contactId) {
+    dispatch(dispatchDeleteContact(contactId))
   }
-}
+})
+
 
 const Form = connect(
   mapStateToProps,

@@ -44,23 +44,19 @@ export class ContactsView extends React.Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    contacts: state.contacts,
-    selectedContactId: state.selectedContact._id
-  }
-}
+const mapStateToProps = (state) => ({
+  contacts: state.contacts,
+  selectedContactId: state.selectedContact._id
+})
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    handleSelectContact: contact => {
-      dispatch(selectContact(contact))
-    },
-    handleClearSelectedContact: () => {
-      dispatch(clearSelectedContact())
-    }
+const mapDispatchToProps = (dispatch) => ({
+  handleSelectContact(contact) {
+    dispatch(selectContact(contact))
+  },
+  handleClearSelectedContact() {
+    dispatch(clearSelectedContact())
   }
-}
+})
 
 const Contacts = connect(
   mapStateToProps,
