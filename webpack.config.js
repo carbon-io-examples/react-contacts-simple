@@ -7,6 +7,7 @@ module.exports = {
     path: path.join(__dirname, 'dist'),
     filename: 'client.bundle.js'
   },
+  devtool: 'inline-source-map',
   module: {
     rules: [
       {
@@ -16,15 +17,22 @@ module.exports = {
           loader: 'babel-loader',
           options: { presets: ['stage-0', 'env', 'react'] }
         }
+      },
+      {
+        test: /\.css$/,
+        use: [
+          'style-loader',
+          'css-loader'
+        ]
       }
     ]
   },
   devServer: {
-    contentBase: path.join(__dirname, 'src')
+    contentBase: path.join(__dirname, 'dist')
   },
   plugins: [
     new webpack.EnvironmentPlugin({
       CONTACTS_API_URI: 'http://localhost:9900'
     })
   ]
-};
+}

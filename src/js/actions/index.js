@@ -9,7 +9,8 @@ export const selectContact = (contact) => ({
 export const changeContact = (contactId, contactKey, newContactVal) => ({
   contactId,
   type: types.CHANGE_CONTACT,
-  payload: { [contactKey]: newContactVal }
+  payload: { [contactKey]: newContactVal },
+  test: cosnole.log('blah')
 })
 
 export const clearSelectedContact = () => ({
