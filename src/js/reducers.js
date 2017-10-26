@@ -1,8 +1,15 @@
 import { combineReducers } from 'redux'
-import * as types from '../constants/ActionTypes'
-import { emptyContact } from '../helpers'
+import * as types from './ActionTypes'
 
-const selectedContact = (state = emptyContact(), action) => {
+const emptyContact = {
+  firstName: '',
+  lastName: '',
+  email: '',
+  phoneMobile: '',
+  phoneWork: ''
+}
+
+const selectedContact = (state = emptyContact, action) => {
   switch (action.type) {
     case types.SELECT_CONTACT:
       return action.payload
@@ -14,10 +21,10 @@ const selectedContact = (state = emptyContact(), action) => {
       return action.payload
 
     case types.DELETE_CONTACT_FULFILLED:
-      return emptyContact()
+      return emptyContact
 
     case types.CLEAR_SELECTED_CONTACT:
-      return emptyContact()
+      return emptyContact
 
     default:
       return state
