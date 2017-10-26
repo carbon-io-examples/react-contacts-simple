@@ -8,6 +8,9 @@ module.exports = {
     filename: 'client.bundle.js'
   },
   devtool: 'inline-source-map',
+  resolve: {
+    extensions: ['.js', '.jsx']
+  },
   module: {
     rules: [
       {
@@ -16,6 +19,15 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: { presets: ['stage-0', 'env', 'react'] }
+        }
+      },
+      {
+        test: /index\.html$/,
+        use: {
+          loader: 'file-loader',
+          options: {
+            name: '[name].[ext]'
+          }
         }
       },
       {
@@ -28,7 +40,7 @@ module.exports = {
     ]
   },
   devServer: {
-    contentBase: path.join(__dirname, 'dist')
+    contentBase: path.join(__dirname, 'src')
   },
   plugins: [
     new webpack.EnvironmentPlugin({

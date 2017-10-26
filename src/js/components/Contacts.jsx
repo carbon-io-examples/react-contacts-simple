@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import React from "react"
-import { selectContact, clearSelectedContact } from '../../actions'
+import { selectContact, clearSelectedContact } from '../actions'
 
 export class ContactsView extends React.Component {
 
@@ -18,7 +18,7 @@ export class ContactsView extends React.Component {
 
           <ul className="contact-list--list">
             {
-              contacts.length 
+              contacts.length
                 ? contacts.map((contact) => this.renderListItem(contact, selectedContactId, handleSelectContact))
                 : <li className="contact-list--list-item m-empty">You have not added any contacts, yet.</li>
             }
@@ -32,11 +32,11 @@ export class ContactsView extends React.Component {
   renderListItem(contact, selectedContactId, handleSelectContact) {
     const { _id, firstName, lastName } = contact
     const selectedClass = selectedContactId === _id ? "s-selected" : ""
-    
+
     return (
       <li
         key={_id}
-        className={`contact-list--list-item ${selectedClass}`} 
+        className={`contact-list--list-item ${selectedClass}`}
         onClick={(e) => handleSelectContact(contact)} >
         {`${firstName} ${lastName}`}
       </li>

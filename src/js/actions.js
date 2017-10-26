@@ -1,5 +1,5 @@
-import ContactServiceApi from '../services/ContactServiceApi'
-import * as types from '../constants/ActionTypes'
+import Api from './Api'
+import * as types from './ActionTypes'
 
 export const selectContact = (contact) => ({
   type: types.SELECT_CONTACT,
@@ -19,7 +19,7 @@ export const clearSelectedContact = () => ({
 
 export const dispatchFetchContacts = (dispatch) => {
   dispatch({ type: types.FETCH_CONTACTS_PENDING })
-  return ContactServiceApi.fetchContacts().then(
+  return Api.fetchContacts().then(
     res => {
       dispatch({ type: types.FETCH_CONTACTS_FULFILLED, payload: res.data })
     },
@@ -31,7 +31,7 @@ export const dispatchFetchContacts = (dispatch) => {
 
 export const dispatchUpdateContact = (contact) => (dispatch) => {
   dispatch({ type: types.UPDATE_CONTACT_PENDING })
-  return ContactServiceApi.updateContact(contact).then(
+  return Api.updateContact(contact).then(
     res => {
       dispatch({ type: types.UPDATE_CONTACT_FULFILLED })
     },
@@ -43,7 +43,7 @@ export const dispatchUpdateContact = (contact) => (dispatch) => {
 
 export const dispatchCreateContact = (contact) => (dispatch) => {
   dispatch({ type: types.CREATE_CONTACT_PENDING })
-  return ContactServiceApi.createContact(contact).then(
+  return Api.createContact(contact).then(
     res => {
       dispatch({ type: types.CREATE_CONTACT_FULFILLED, payload: res.data })
     },
@@ -55,7 +55,7 @@ export const dispatchCreateContact = (contact) => (dispatch) => {
 
 export const dispatchDeleteContact = (contactId) => (dispatch) => {
   dispatch({ type: types.DELETE_CONTACT_PENDING })
-  return ContactServiceApi.deleteContact(contactId).then(
+  return Api.deleteContact(contactId).then(
     res => {
       dispatch({ type: types.DELETE_CONTACT_FULFILLED, payload: contactId })
     },

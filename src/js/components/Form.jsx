@@ -1,6 +1,6 @@
 import React from "react"
 import { connect } from 'react-redux'
-import { changeContact, dispatchCreateContact, dispatchUpdateContact, dispatchDeleteContact } from '../../actions'
+import { changeContact, dispatchCreateContact, dispatchUpdateContact, dispatchDeleteContact } from '../actions'
 
 const DISPLAY_NAMES = {
   'firstName': 'First Name',
@@ -22,12 +22,12 @@ export class FormView extends React.Component {
       e.preventDefault()
       handleUpdateContact(contact)
     }
-    
+
     const submitCreate = (e) => {
       e.preventDefault()
       handleCreateContact(contact)
     }
-    
+
     const submitDelete = (e) => {
       e.preventDefault()
       handleDeleteContact(contact._id)
@@ -45,8 +45,8 @@ export class FormView extends React.Component {
               .map(field => this.renderInput(field)) }
           <div className="button-bar">
             { contact._id && <button key="Delete" className="btn btn-danger pull-left" onClick={submitDelete}>Delete</button> }
-            
-              <button type="submit" className="btn btn-primary pull-right">{contact._id ? "Update" : "Create"}</button> 
+
+              <button type="submit" className="btn btn-primary pull-right">{contact._id ? "Update" : "Create"}</button>
           </div>
         </div>
       </form>
@@ -55,11 +55,11 @@ export class FormView extends React.Component {
 
   renderInput(field) {
     const { handleChangeContact, contact } = this.props
-    
+
     const changeHandler = (e) => {
       handleChangeContact(contact._id, field, e.target.value)
     }
-    
+
     return (
       <div className="form-group" key={field}>
       <label className="form-label">{DISPLAY_NAMES[field]}</label>
