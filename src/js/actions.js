@@ -1,5 +1,5 @@
-import Api from './Api'
-import * as types from './ActionTypes'
+import api from './api'
+import * as types from './actionTypes'
 
 export const selectContact = (contact) => ({
   type: types.SELECT_CONTACT,
@@ -9,8 +9,7 @@ export const selectContact = (contact) => ({
 export const changeContact = (contactId, contactKey, newContactVal) => ({
   contactId,
   type: types.CHANGE_CONTACT,
-  payload: { [contactKey]: newContactVal },
-  test: cosnole.log('blah')
+  payload: { [contactKey]: newContactVal }
 })
 
 export const clearSelectedContact = () => ({
@@ -19,7 +18,7 @@ export const clearSelectedContact = () => ({
 
 export const dispatchFetchContacts = (dispatch) => {
   dispatch({ type: types.FETCH_CONTACTS_PENDING })
-  return Api.fetchContacts().then(
+  return api.fetchContacts().then(
     res => {
       dispatch({ type: types.FETCH_CONTACTS_FULFILLED, payload: res.data })
     },
@@ -31,7 +30,7 @@ export const dispatchFetchContacts = (dispatch) => {
 
 export const dispatchUpdateContact = (contact) => (dispatch) => {
   dispatch({ type: types.UPDATE_CONTACT_PENDING })
-  return Api.updateContact(contact).then(
+  return api.updateContact(contact).then(
     res => {
       dispatch({ type: types.UPDATE_CONTACT_FULFILLED })
     },
@@ -43,7 +42,7 @@ export const dispatchUpdateContact = (contact) => (dispatch) => {
 
 export const dispatchCreateContact = (contact) => (dispatch) => {
   dispatch({ type: types.CREATE_CONTACT_PENDING })
-  return Api.createContact(contact).then(
+  return api.createContact(contact).then(
     res => {
       dispatch({ type: types.CREATE_CONTACT_FULFILLED, payload: res.data })
     },
@@ -55,7 +54,7 @@ export const dispatchCreateContact = (contact) => (dispatch) => {
 
 export const dispatchDeleteContact = (contactId) => (dispatch) => {
   dispatch({ type: types.DELETE_CONTACT_PENDING })
-  return Api.deleteContact(contactId).then(
+  return api.deleteContact(contactId).then(
     res => {
       dispatch({ type: types.DELETE_CONTACT_FULFILLED, payload: contactId })
     },
