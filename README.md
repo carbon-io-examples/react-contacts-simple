@@ -1,8 +1,8 @@
 # Building a React App with a Carbon.io API (Part 2)
 
-shield-badge
+[![Build Status](https://img.shields.io/travis/carbon-io-examples/react-contacts-simple/master.svg?style=flat-square)](https://travis-ci.org/carbon-io-examples/react-contacts-simple) ![Carbon Version](https://img.shields.io/badge/carbon--io-0.7-blue.svg?style=flat-square)
 
-[![Build Status](https://img.shields.io/travis/carbon-io-examples/master/react-contacts-simple.svg?style=flat-square)](https://travis-ci.org/carbon-io-examples/react-contacts-simple) ![Carbon Version](https://img.shields.io/badge/carbon--io-0.7-blue.svg?style=flat-square)
+
 
 <img alt="A gif showing the react app we'll be making" src="./heroexample.gif" width="700">
 
