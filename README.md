@@ -1,5 +1,7 @@
 # Building a React App with a Carbon.io API (Part 2)
 
+[![Build Status](https://img.shields.io/travis/carbon-io-examples/react-contacts-simple.svg?style=flat-square)](https://travis-ci.org/carbon-io-examples/react-contacts-simple) ![Carbon Version](https://img.shields.io/badge/carbon--io-0.7-blue.svg?style=flat-square)
+
 <img alt="A gif showing the react app we'll be making" src="./heroexample.gif" width="700">
 
 __This is _Part 2_ in a four-part series on how to build a fully-fledged React app. It is intended for developers with a beginner to intermediate knowledge of React who want guidance on how to build a full Single Page Application. We cover app architecture, Redux, user signup/login, routing, and making a NodeJS back-end with Carbon.io.__
