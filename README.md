@@ -6,10 +6,10 @@ __This is _Part 2_ in a four-part series on how to build a fully-fledged React a
 
 | Series Parts |
 |---|
-| __Part 1:__ [Building an API with Carbon.io](#) |
+| __Part 1:__ [Building an API with Carbon.io](https://github.com/carbon-io-examples/contacts-service-simple) |
 | __Part 2:__ __Building a React App with a Carbon.io API__ |
-| __Part 3:__ [Securing Carbon.io APIs](#) |
-| __Part 4:__ [User Login and Routing with React](#) |
+| __Part 3:__ Securing Carbon.io APIs (Coming Soon) |
+| __Part 4:__ User Login and Routing with React (Coming Soon) |
 
 ## Table of Contents
 
@@ -43,12 +43,12 @@ In _Part 1_, we created an API with Carbon.io to manage personal contacts. Each 
 
 Some familiarity with React and Redux would be helpful to follow this tutorial. If you're new to these technologies, you may want to check out the [official React tutorial](https://facebook.github.io/react/tutorial/tutorial.html) and this [Redux tutorial from CSS-Tricks](https://css-tricks.com/learning-react-redux/).
 
-Here's the [completed source code](#) of what we'll be building in this tutorial.
+Here's the [completed source code](https://github.com/carbon-io-examples/react-contacts-simple) of what we'll be building in this tutorial.
 
 
 ## Set up the Contacts Service
 
-This application is built on top of the [Contact Service API](#) we built in [_Part 1_](#). Start the service by running this command from the service's directory:
+This application is built on top of the [Contact Service API](https://github.com/carbon-io-examples/contacts-service-simple) we built in [_Part 1_](https://github.com/carbon-io-examples/contacts-service-simple). Start the service by running this command from the service's directory:
 
 ```
 $ node lib/ContactService.js
@@ -59,7 +59,7 @@ You should see the service start to listen on port 9900.
 
 ## Directory structure of a React app
 
-The [source code for this project](#) is available on GitHub. React is modular by design, so it's important to structure our code in a clear way. Here's a description of the final directory structure of our project so we know what we're working towards:
+The [source code for this project](https://github.com/carbon-io-examples/react-contacts-simple) is available on GitHub. React is modular by design, so it's important to structure our code in a clear way. Here's a description of the final directory structure of our project so we know what we're working towards:
 
 - `package.json` - project metadata and dependency list.
 - `webpack.config.js` - webpack configuration.
@@ -231,10 +231,10 @@ Now create an `index.html` file in the `src` folder with the following code:
 </html>
 ```
 
-To style the page, create a `src/styles` folder and download the `main.css` file for the project to style your application. You can use the curl command below or just copy the file from [here](https://github.com/danieln-ml/example__react-contacts-client/blob/master/src/styles/main.css).
+To style the page, create a `src/styles` folder and download the `main.css` file for the project to style your application. You can use the curl command below or just copy the file from [here](https://github.com/carbon-io-examples/react-contacts-simple/blob/master/src/styles/main.css).
 
 ```
-$ curl https://raw.githubusercontent.com/danieln-ml/example__react-contacts-client/master/src/styles/main.css --create-dirs -o src/styles/main.css
+$ curl https://raw.githubusercontent.com/carbon-io-examples/react-contacts-simple/master/src/styles/main.css --create-dirs -o src/styles/main.css
 ```
 
 Next, create the `src/js/components` folder and make an `App.jsx` file there with the following code:
@@ -605,7 +605,7 @@ export class ContactsView extends React.Component {
     // If the _id of selectedContact is the same as this contact's _id, give this contact the s-selected class.
     const { _id, firstName, lastName } = contact
     const selectedClass = selectedContactId === _id ? "s-selected" : ""
-    
+
     // We call handleSelectContact whenever an li is clicked. This will select the contact whose li was clicked.
     return (
       <li
@@ -676,18 +676,18 @@ export class FormView extends React.Component {
     const { contact, handleUpdateContact, handleCreateContact, handleDeleteContact } = this.props
 
     const contactFields = contact ? Object.keys(contact) : []
-  
+
     // Handlers for creating, updating, and deleting contacts
     const submitUpdate = (e) => {
       e.preventDefault()
       handleUpdateContact(contact)
     }
-    
+
     const submitCreate = (e) => {
       e.preventDefault()
       handleCreateContact(contact)
     }
-    
+
     const submitDelete = (e) => {
       e.preventDefault()
       handleDeleteContact(contact._id)
@@ -705,7 +705,7 @@ export class FormView extends React.Component {
               .map(field => this.renderInput(field)) }
           <div className="button-bar">
             { contact._id && <button key="Delete" className="btn btn-danger pull-left" onClick={submitDelete}>Delete</button> }
-            
+
               <button type="submit" className="btn btn-primary pull-right">{contact._id ? "Update" : "Create"}</button>
           </div>
         </div>
@@ -719,7 +719,7 @@ export class FormView extends React.Component {
     const changeHandler = (e) => {
       handleChangeContact(contact._id, field, e.target.value)
     }
-    
+
     // Call changeHandler onChange
     return (
       <div className="form-group" key={field}>
@@ -858,4 +858,4 @@ If you want to deploy your code to a production environment, you might want to c
 
 Congratulations! You've built a React application that can talk to a Carbon.io API.
 
-Our next tutorial in this series shows how to secure your Carbon.io API using Basic HTTP authentication. Read [_Securing Carbon.io APIs (Part 3)_ here](#).
+Our next tutorial in this series shows how to secure your Carbon.io API using Basic HTTP authentication. _Securing Carbon.io APIs (Part 3)_ is coming soon.
